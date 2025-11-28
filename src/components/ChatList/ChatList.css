@@ -1,0 +1,111 @@
+/* src/components/ChatList/ChatList.css */
+/* WA Mobile Dark Mode */
+body.dark {
+  background: #111b21;
+  margin: 0;
+  font-family: "Segoe UI", Roboto, sans-serif;
+}
+
+/* Container chat list */
+.chatlist {
+  width: 100vw;
+  height: 100dvh;
+  background: #0b141a;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Header */
+.chatlist-header {
+  background: #202c33;
+  color: #25d366;
+  font-size: 1.25rem;
+  font-weight: 700;
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+/* List chat */
+.chatlist-items {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.chatlist-items::-webkit-scrollbar {
+  width: 3px;
+}
+.chatlist-items::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.2);
+  border-radius: 10px;
+}
+
+/* Entry chat */
+.chatlist-entry {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 16px;
+  cursor: pointer;
+  transition: background 0.2s;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+.chatlist-entry:hover {
+  background: rgba(255,255,255,0.06);
+}
+
+/* Avatar */
+.chatlist-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* Info chat */
+.chatlist-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* Nama + waktu */
+.chatlist-top {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.chatlist-name {
+  color: #e9edef;
+  font-size: 1rem;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 70%;
+}
+
+.chatlist-time {
+  color: #8696a0;
+  font-size: 0.72rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-left: 8px;
+}
+
+/* Pesan terakhir */
+.chatlist-last {
+  color: #8696a0;
+  font-size: 0.88rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 92%;
+}

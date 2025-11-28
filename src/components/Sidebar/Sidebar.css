@@ -1,157 +1,131 @@
+/* GANTI SEMUA INI DI Sidebar.css ANDA */
+
 .sidebar {
-    min-height: 100svh;
-    display: inline-flex;
+    /* Background dan Teks ChatGPT */
+    background-color: #202123; /* Warna latar belakang gelap */
+    color: #fff; /* Warna teks putih */
+    min-height: 100vh; /* Gunakan vh/svh */
+    display: flex; /* Ganti inline-flex menjadi flex */
     flex-direction: column;
     justify-content: space-between;
-    background-color: #f0f4f9;
-    padding: 25px 15px;
-    transition: width 0.15s ease, padding 0.3s ease;
+    padding: 10px; /* Padding lebih kecil di atas/bawah/samping */
+    transition: width 0.3s ease; /* Transisi lebih lambat */
     z-index: 999;
     user-select: none;
-}
-
-@media (max-width: 800px) {
-    .sidebar {
-        position: fixed;
-    }
+    position: fixed; /* Selalu fixed agar konten main bisa digeser */
+    top: 0;
+    left: 0;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1); /* Shadow ringan */
 }
 
 .sidebar.extended {
-    width: 250px;
+    width: 260px; /* Lebar standar ChatGPT */
 }
 
 .sidebar.collapsed {
-    width: 80px;
+    width: 60px; /* Lebar ciutkan lebih kecil */
+}
+
+/* Menu Burger */
+.menu {
+    width: 40px; /* Sedikit lebih kecil */
+    height: 40px;
+    background-color: transparent !important; /* Hapus latar belakang */
+    color: #fff;
+}
+
+.menu:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Hover putih transparan */
 }
 
 .sidebar img {
     width: 20px;
+    filter: invert(1); /* PENTING: Untuk membuat ikon menjadi putih */
 }
 
-.menu {
-    width: 50px;
-    height: 50px;
-    display: -ms-grid;
-    display: grid;
-    place-items: center;
-    cursor: pointer;
-    border-radius: 100svh;
-}
-
-.menu:hover {
-    background-color: #e8eaed;
-}
-
-.top, .bottom {
-    display: grid;
-    gap: 0.5rem;
-    -ms-flex-line-pack: start;
-    align-content: start;
-    -ms-flex-align: center;
-    align-items: center;
-}
-
+/* New Chat Button */
 .sidebar .new-chat {
-    margin-top: 50px;
-    display: inline-flex;
+    /* Gaya Tombol Baru ChatGPT */
+    margin-top: 5px;
+    display: flex;
     align-items: center;
     gap: 10px;
-    padding: 10px 15px;
-    background-color: #e6eaf1;
-    border-radius: 50px;
+    padding: 10px;
+    background-color: transparent; /* Awalnya transparan */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Border putih halus */
+    border-radius: 10px; /* Border radius yang kotak */
     font-size: 14px;
-    color: #505050;
+    color: #fff;
     cursor: pointer;
+    justify-content: start; /* Rata kiri */
+    width: 100%;
 }
 
 .new-chat:hover {
-    background-color: #e0e0e5;
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
-.new-chat {
-    justify-content: center;
-    width: max-content;
-}
-
+/* Recent Items */
 .sidebar .recent-title {
-    margin-top: 40px;
-    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #a0a0a0; /* Abu-abu muda */
+    font-size: 13px;
+    padding: 0 10px;
 }
 
 .sidebar .recent-entry {
+    /* Styling Item Riwayat */
     display: flex;
     justify-content: start;
-    align-items: start;
+    align-items: center;
     gap: 10px;
     padding: 10px;
-    border-radius: 100vh;
-    color: #282828;
+    border-radius: 8px; /* Border radius kotak */
+    color: #fff;
     cursor: pointer;
+    margin-bottom: 5px;
 }
 
 .sidebar .recent-entry:hover {
-    background-color: #e2e6eb;
-}
-
-.fade {
-    transition: opacity 1s ease;
-}
-
-.hidden {
-    opacity: 0;
-    visibility: hidden;
-}
-
-.visible {
-    opacity: 1;
-    visibility: visible;
-}
-
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes fadeOut {
-    from {
-        opacity: 1;
-    }
-    to {
-        opacity: 0;
-    }
-}
-
-.none {
-    display: none;
-    opacity: 0;
-    animation: fadeOut 1s forwards;
-}
-
-.block {
-    display: block;
-    opacity: 0;
-    animation: fadeIn 1s forwards;
-    white-space: nowrap;
-}
-
-.centered {
-    display: -ms-grid;
-    display: grid;
-    align-items: center;
-    justify-content: start;
-}
-
-.recent {
-    max-height: 300px;
-    overflow-y: auto;
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 .recent-entry-p {
+    font-size: 14px;
+}
+
+/* Top and Bottom Containers */
+.top, .bottom {
+    display: flex; /* Gunakan flex untuk tata letak modern */
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+}
+
+/* Pengaturan Teks Show/Hide (Sederhanakan) */
+.block {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease;
     white-space: nowrap;
-    overflow: hidden;
+}
+
+.none {
+    opacity: 0;
+    visibility: hidden;
+    display: none; /* Gunakan display:none untuk menghemat ruang */
+    transition: opacity 0.3s ease;
+}
+
+/* Item Bawah (Help, Activity, Settings) */
+.bottom .recent-entry {
+    color: #a0a0a0; /* Warna abu-abu yang lebih lembut */
+    font-size: 14px;
+    transition: background-color 0.2s;
+}
+
+.bottom .recent-entry img {
+    filter: invert(0.8); /* Membuat ikon abu-abu */
 }
